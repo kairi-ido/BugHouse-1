@@ -12,18 +12,18 @@ class SaveActivity : AppCompatActivity() {
 
         //sharedPreferenceという名前でインスタンスを生成
         val sharedPreferences = getSharedPreferences("Second", Context.MODE_PRIVATE)
-
+        val editor = sharedPreferences.edit()
         //saveButtonを押されたときの処理
         saveButton.setOnClickListener {
-            //textに書かれたことを取得
+            //textに書かれたことを取得(2)
             val text = input.text.toString()
 
 
             //文字入力列をSAVEに書き込む
-            val editor = sharedPreferences.edit()
             editor.putString("SAVE", text)
-
+            //追加(3)
             editor.apply()
         }
+        //かっこの場所(1)
     }
 }

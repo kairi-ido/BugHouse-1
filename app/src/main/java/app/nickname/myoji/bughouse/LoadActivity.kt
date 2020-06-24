@@ -1,16 +1,20 @@
 package app.nickname.myoji.bughouse
 
 import android.content.Context
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_count.*
 
 class LoadActivity : AppCompatActivity() {
-
-    override fun onDestroy() {
-        super.onDestroy()
+    //onCreateに変更(1)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load)
 
-        val sharedPreferences = getSharedPreferences("Third", Context.MODE_PRIVATE)
-        numberTextView.text = sharedPreferences.getString("save", "")
+        //Third→Second(2)
+        val sharedPreferences = getSharedPreferences("Second", Context.MODE_PRIVATE)
+        //save→SAVE(3)+""→NoData
+        numberTextView.text = sharedPreferences.getString("SAVE", "NoData")
+
     }
 }

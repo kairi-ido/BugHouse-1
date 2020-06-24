@@ -10,20 +10,20 @@ class CountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count)
-        //vel→ver
+        //vel→ver(1)
         var number: Int = 0
-        //Idをかえて最初の数字を設定
+        //Idをかえて最初の数字を設定(2)
         numberTextView.text = "0"
 
         //idを変えた
         plusBotton.setOnClickListener {
-            //number=に設定
+            //number=に設定(3)
             number = number + 1
-            //string型にするよ
+            //string型にするよ(4)
             numberTextView.text = number.toString()
         }
 
-        //{かっこ}の数も合わせるよ
+        //{かっこ}の数も合わせるよ(5)
     }
 }
 
