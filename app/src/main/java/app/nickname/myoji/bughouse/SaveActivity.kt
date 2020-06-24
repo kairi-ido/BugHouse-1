@@ -8,13 +8,22 @@ import kotlinx.android.synthetic.main.activity_save.*
 class SaveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_load)
-    }
+        setContentView(R.layout.activity_save)
 
-    val sharedPreferences = getSharedPreferences("Second", Context.MODE_PRIVATE)
-    val editor = sharedPreferences.edit()
-    saveButton.setOnClickListener {
-        val text = input.text
-        editor.putString("SAVE", text)
+        //sharedPreferenceという名前でインスタンスを生成
+        val sharedPreferences = getSharedPreferences("Second", Context.MODE_PRIVATE)
+
+        //saveButtonを押されたときの処理
+        saveButton.setOnClickListener {
+            //textに書かれたことを取得
+            val text = input.text.toString()
+
+
+            //文字入力列をSAVEに書き込む
+            val editor = sharedPreferences.edit()
+            editor.putString("SAVE", text)
+
+            editor.apply()
+        }
     }
 }
