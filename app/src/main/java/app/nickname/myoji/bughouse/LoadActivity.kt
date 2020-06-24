@@ -11,6 +11,6 @@ class LoadActivity : AppCompatActivity() {
         setContentView(R.layout.activity_load)
 
         val sharedPreferences = getSharedPreferences("Third", Context.MODE_PRIVATE)
-        textView.text = sharedPreferences.getString("save", "")
+        numberTextView.text = sharedPreferences.getString("save", "")
     }
 }
