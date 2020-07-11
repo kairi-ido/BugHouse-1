@@ -9,11 +9,13 @@ import coil.api.load
 import kotlinx.android.synthetic.main.activity_image_view.*
 
 class ImageViewActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    //persistentState: PersistableBundle?消した???
+    override fun onCreate(savedInstanceState: Bundle? ) {
+        //persistentState???
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image_view)
 
+       
         imageView.load("https://life-is-tech.com/materials/images/summer2019_desktop_3.jpg")
 
         getImageButton.setOnClickListener {
