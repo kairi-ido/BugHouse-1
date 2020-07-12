@@ -27,6 +27,6 @@ class SaveActivity : AppCompatActivity() {
         //かっこの場所(1)
     }
 
-    kkkkkkkkkkkkkkkkk
+
 
 }
