@@ -14,7 +14,8 @@ class TaskAdapter(
     val items: MutableList<Task> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_task_cell, parent, false)
+        val view =
+            LayoutInflater.from(context).inflate(R.layout.item_task_cell, parent, false)
         return ViewHolder(view)
     }
 
@@ -25,7 +26,7 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.container.setOnClickListener {
-            itemClickListener.onItemClick(position)
+            itemClickListener.onItemClick(item)
         }
         holder.nameTextView.text = item.name
 
@@ -36,12 +37,17 @@ class TaskAdapter(
         notifyDataSetChanged()
     }
 
+    fun add(name:Task){
+        this.items.add(name)
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val container: View = view.findViewById(R.id.container)
         val nameTextView: TextView = view.findViewById(R.id.nameTextView)
     }
 
     interface ItemClickListener {
-        fun onItemClick(position: Int)
+        fun onItemClick(item:Task)
     }
 }
