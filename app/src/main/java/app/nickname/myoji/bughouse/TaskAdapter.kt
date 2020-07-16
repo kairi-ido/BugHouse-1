@@ -26,8 +26,12 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.container.setOnClickListener {
-            itemClickListener.onItemClick(item)
+           itemClickListener.onItemClick(position)
         }
+        holder.container.setOnClickListener {
+            itemClickListener.onItemClick(position)
+        }
+
         holder.nameTextView.text = item.name
 
     }
@@ -48,6 +52,7 @@ class TaskAdapter(
     }
 
     interface ItemClickListener {
-        fun onItemClick(item:Task)
+        fun onItemClick(position: Int)
+
     }
 }
